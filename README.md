@@ -1,0 +1,1 @@
+Object id provisioning/ticket server for Symfony2 using (by default) [predis](https://github.com/nrk/predis)/[SncPredisBundle](https://github.com/snc/SncRedisBundle)

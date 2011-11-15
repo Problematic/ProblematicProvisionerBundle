@@ -1,0 +1,12 @@
+services:
+    problematic_provisioner.provisioner.redis:
+        class: Problematic\ProvisionerBundle\Provisioner\RedisProvisioner
+        arguments:
+            redis: "@problematic_provisioner.redis.client"
+            key: %problematic_provisioner.redis.key%
+    problematic_provisioner.listener.orm:
+        class: Problematic\ProvisionerBundle\Listener\ProvisioningListener
+        arguments:
+            provisioner: "@problematic_provisioner.provisioner"
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
